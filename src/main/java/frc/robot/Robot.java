@@ -40,6 +40,7 @@ public class Robot extends TimedRobot {
   
   public static Sys_DriveTrain _DriveTrain;
   public static Sys_AutonomousDrive _AutonomousDrive;
+  public static Sys_HatchDeployer;
   
 
   public static PathStorage pathgen;
@@ -60,6 +61,7 @@ public class Robot extends TimedRobot {
     constant = new Constants();
     _CargoIntake = new Sys_CargoIntake();
     _CargoShooter = new Sys_CargoShooter();
+    _HatchDeployer = new Sys_HatchDeployer();
     // _AutonomousDrive = new Sys_AutonomousDrive();
     _DriveTrain = new Sys_DriveTrain();
     pathgen = new PathStorage();
@@ -68,6 +70,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     _CargoIntake.configureIntake();
     _CargoShooter.configureShooter();
+    _HatchDeployer.configureHatch();
 
     // cOpenIntake = new OpenIntake();
 
