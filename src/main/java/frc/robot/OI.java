@@ -7,9 +7,12 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.ButtonMonitor;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.*;
 
 
@@ -18,29 +21,39 @@ import frc.robot.commands.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+//driver controller 
+  public static XboxController driver1 = new XboxController(0);
 
-  public static Joystick interface1 = new Joystick(0);
-  public static Joystick interface2 = new Joystick(1);
+//co-driver controller
+  public static XboxController driver2 = new XboxController(1);
 
-  //JoyStick Number 1 w/ button assignments
-  public static Joystick stick = new Joystick(1);
-  public static Button button = new JoystickButton(stick, 1);
-  public static Button button2 = new JoystickButton(stick, 2);
-  public static Button button3 = new JoystickButton(stick, 3);
-  public static Button button4 = new JoystickButton(stick, 4);
-  public static Button button5 = new JoystickButton(stick, 5);
+//driver buttons
+  public static Button aButton1 = new JoystickButton(driver1, 1);
+  public static Button bButton1 = new JoystickButton(driver1, 2);
+  public static Button xButton1 = new JoystickButton(driver1, 3);
+  public static Button yButton1 = new JoystickButton(driver1, 4);
+  public static Button lBumper1 = new JoystickButton(driver1, 5);
+  public static Button rBumper1 = new JoystickButton(driver1, 6);
+
+//co-driver buttons
+  public static Button aButton2 = new JoystickButton(driver2, 1);
+  public static Button bButton2 = new JoystickButton(driver2, 2);
+  public static Button xButton2 = new JoystickButton(driver2, 3);
+  public static Button yButton2 = new JoystickButton(driver2, 4);
+  public static Button lBumper2 = new JoystickButton(driver2, 5);
+  public static Button rBumper2 = new JoystickButton(driver2, 6);
 
   public OI() {
-    button.whileHeld(new IntakeBall());
-    button.whenReleased(new StopIntaking());
+    aButton1.whileHeld(new IntakeBall());
+    aButton1.whenReleased(new StopIntaking());
 
-    button2.whileHeld(new FoldOutShoot());
+    aButton2.whileHeld(new FoldOutShoot());
+    bButton2.whenPressed(new FoldOutClosed());
+    xButton2.whileHeld(new Sweep());
+    yButton2.whileHeld(new ShootBall());
 
-    button3.whenPressed(new FoldOutClosed());
-
-    button4.whileHeld(new Sweep());
-
-    button5.whileHeld(new ShootBall());
+    rBumper1.whenPressed(new MoveHatchIn());
+    rBumper1.when;
  
   }
   //// CREATING BUTTONS
