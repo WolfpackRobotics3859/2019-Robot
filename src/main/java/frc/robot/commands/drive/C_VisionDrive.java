@@ -12,7 +12,6 @@ import frc.robot.Robot;
 
 public class C_VisionDrive extends Command {
   public C_VisionDrive() {
-    // Use requires() here to declare subsystem dependencies
     requires(Robot._Drive);
   }
 
