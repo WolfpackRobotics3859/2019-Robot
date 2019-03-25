@@ -26,7 +26,11 @@ public class C_ShooterManualControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+<<<<<<< HEAD
     Robot._Shooter.manualShooter(OI.xbox2.getRawAxis(5));
+=======
+    Robot._Shooter.manualShooter(OI.xbox2.getRawAxis(5)/3);
+>>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   // Make this return true when this Command no longer needs to run execute()

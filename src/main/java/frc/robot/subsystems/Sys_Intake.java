@@ -15,6 +15,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+<<<<<<< HEAD
+=======
+import edu.wpi.first.wpilibj.DigitalOutput;
+>>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -106,7 +110,10 @@ public class Sys_Intake extends Subsystem {
       }
     }
   public synchronized void manualIntake(double value) {
+<<<<<<< HEAD
       
+=======
+>>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     m_ArmRight.set(ControlMode.PercentOutput, value);
   }
 

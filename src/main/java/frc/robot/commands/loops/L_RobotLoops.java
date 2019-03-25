@@ -31,8 +31,11 @@ public class L_RobotLoops extends Command {
     Robot._Intake.autoSensorZero();
     Robot._Overwatch.overwatchManager();
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     SmartDashboard.putData(Robot._Intake);
     SmartDashboard.putData(Robot._Shooter);
     SmartDashboard.putData(Robot._Hatch);

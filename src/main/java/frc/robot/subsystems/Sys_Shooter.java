@@ -21,8 +21,13 @@ import frc.robot.commands.shooter.C_ShooterStow;
 
 public class Sys_Shooter extends Subsystem {
   private TalonSRX m_ArmTalon;
+<<<<<<< HEAD
   private static Sys_Shooter mInstance = null;
   
+=======
+
+  private static Sys_Shooter mInstance = null;
+>>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   public synchronized static Sys_Shooter getInstance() {
     if (mInstance == null){
       mInstance = new Sys_Shooter();
