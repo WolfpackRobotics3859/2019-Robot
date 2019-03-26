@@ -12,34 +12,20 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-<<<<<<< HEAD
 import frc.robot.commands.drive.C_RegressedDrive;
 import frc.robot.commands.drive.C_TurboDrive;
 import frc.robot.commands.drive.C_VisionDrive;
 import frc.robot.commands.driver_input.C_ZeroIntake;
 import frc.robot.commands.driver_input.C_ZeroShooter;
 import frc.robot.commands.electropneumatic.C_ClimbEngage;
-=======
-import frc.robot.commands.driver_input.C_ZeroIntake;
-import frc.robot.commands.driver_input.C_ZeroShooter;
-import frc.robot.commands.electropneumatic.C_ChangeGearing;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 import frc.robot.commands.electropneumatic.C_HookClamp;
 import frc.robot.commands.electropneumatic.C_HookRelease;
 import frc.robot.commands.hatch.C_HatchForward;
 import frc.robot.commands.hatch.C_HatchReverse;
-<<<<<<< HEAD
 import frc.robot.commands.intake.C_IntakeSweep;
 import frc.robot.commands.selectors.SL_ShooterForward;
 import frc.robot.commands.selectors.SL_ShooterRear;
 import frc.robot.commands.shooter.C_ShooterManualControl;
-=======
-import frc.robot.commands.intake.C_IntakeStow;
-import frc.robot.commands.intake.C_IntakeSweep;
-import frc.robot.commands.selectors.SL_ShooterForward;
-import frc.robot.commands.selectors.SL_ShooterRear;
-import frc.robot.commands.shooter.C_ShooterStow;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
 public class OI {
   public static XboxController xbox1 = new XboxController(0);
@@ -69,7 +55,6 @@ public class OI {
   Button xb2_Start = new JoystickButton(xbox2_stick, 8);
   Button xb2_Lstick = new JoystickButton(xbox2_stick, 9);
   Button xb2_Rstick = new JoystickButton(xbox2_stick, 10);
-<<<<<<< HEAD
  
   public OI(){
 
@@ -78,17 +63,6 @@ public class OI {
   xb1_A.whileHeld(new C_VisionDrive());
   xb1_Lstick.whenPressed(new C_TurboDrive());
   xb1_Lstick.whenReleased(new C_RegressedDrive());
-=======
-
-  public boolean override = false;
-
-  public OI(){
-
-  // xb1_LB.whileHeld(new C_IntakeSweep());
-  xb1_RB.whileHeld(new C_IntakeSweep());
-
-  xb1_A.whileHeld(new C_ChangeGearing());
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
   xb2_RB.whileHeld(new C_HatchForward(Constants.hatch_travelSpeed));
   xb2_LB.whileHeld(new C_HatchReverse(Constants.hatch_travelSpeed));
@@ -98,24 +72,14 @@ public class OI {
 
   SmartDashboard.putData("Zero Shooter Encoder", new C_ZeroShooter());
   SmartDashboard.putData("Zero Intake Encoder", new C_ZeroIntake());
-<<<<<<< HEAD
   SmartDashboard.putData("Climb Pneumatic Switch", new C_ClimbEngage());
   SmartDashboard.putData("Shooter Manual Enable", new C_ShooterManualControl());
 
   xb2_Start.whileHeld(new C_ZeroIntake());
-=======
-
-  xb1_B.whenPressed(new C_ShooterStow());
-  xb1_A.whenPressed(new C_IntakeStow());
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
   xb1_Y.whileHeld(new SL_ShooterForward());
   xb1_X.whileHeld(new SL_ShooterRear());
 
-<<<<<<< HEAD
-=======
-  xb1_Lstick.whileHeld(new C_ChangeGearing());
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
 
 }

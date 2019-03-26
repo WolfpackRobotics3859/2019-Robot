@@ -12,7 +12,6 @@ import edu.wpi.cscore.VideoMode.PixelFormat;
 import edu.wpi.first.cameraserver.CameraServer;
 //import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
-<<<<<<< HEAD
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.commands.drive.C_RegressedDrive;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,13 +19,6 @@ import frc.robot.commands.driver_input.C_DriverInput;
 import frc.robot.commands.electropneumatic.C_ChangeGearing;
 import frc.robot.commands.electropneumatic.C_ClimbEngage;
 import frc.robot.commands.electropneumatic.C_ClimbRelease;
-=======
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.driver_input.C_DriverInput;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 import frc.robot.commands.electropneumatic.C_HookClamp;
 import frc.robot.commands.electropneumatic.C_HookRelease;
 import frc.robot.commands.intake.C_IntakeManualControl;
@@ -48,10 +40,7 @@ import frc.robot.subsystems.Sys_ElectroPneumatic;
 import frc.robot.subsystems.Sys_Hatch;
 import frc.robot.subsystems.Sys_Intake;
 import frc.robot.subsystems.Sys_Overwatch;
-<<<<<<< HEAD
 import frc.robot.subsystems.Sys_RobotTime;
-=======
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 import frc.robot.subsystems.Sys_Shooter;
 import frc.robot.subsystems.Sys_Wheels;
 import frc.robot.trajectories.Trajectory_Test;
@@ -89,7 +78,6 @@ public class Robot extends TimedRobot {
   public static C_WheelsIntake cWheelsIntake;
   public static C_WheelsShoot cWheelsShoot;
 
-<<<<<<< HEAD
   public static C_ChangeGearing cChangeGearing;
   public static C_HookClamp cHookClamp;
   public static C_HookRelease cHookRelease;
@@ -104,17 +92,6 @@ public class Robot extends TimedRobot {
 
     _robotTime = new Sys_RobotTime();
   
-=======
-  public static C_HookClamp cHookClamp;
-  public static C_HookRelease cHookRelease;
-  
-  Command m_autonomousCommand;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
-
-  @Override
-  public void robotInit() {
-    
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     //shouldn't need initialization, but here to prevent errors
     constant = new Constants();
 
@@ -133,11 +110,7 @@ public class Robot extends TimedRobot {
     Robot._Shooter.configureShooter();
     Robot._Hatch.configureHatch();
     Robot._Wheels.configureWheels();
-<<<<<<< HEAD
     Robot._robotTime.configureTimer();
-=======
-    Robot._ElectroPneumatic.configureSuperStructure();
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
     //enables operator interface
     m_oi = new OI();
@@ -162,7 +135,6 @@ public class Robot extends TimedRobot {
     cHookClamp = new C_HookClamp();
     cHookRelease= new C_HookRelease();
 
-<<<<<<< HEAD
     cChangeGearing = new C_ChangeGearing();
 
     cDriverInput = new C_DriverInput();
@@ -176,15 +148,6 @@ public class Robot extends TimedRobot {
     CameraServer.getInstance().startAutomaticCapture("CAMERA 2", "/dev/video1").setVideoMode(PixelFormat.kMJPEG, 160, 120, 20);
 
     Robot._robotTime.timePrintln("[SYSTEM] Robot Init Completed.");
-=======
-    CameraServer.getInstance().startAutomaticCapture("CAMERA 1", "/dev/video0").setVideoMode(PixelFormat.kMJPEG, 160, 120, 20);
-    CameraServer.getInstance().startAutomaticCapture("CAMERA 2", "/dev/video1").setVideoMode(PixelFormat.kMJPEG, 160, 120, 20);
-
-    // m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // // chooser.addOption("My Auto", new MyAutoCommand());
-    // SmartDashboard.putData("Auto mode", m_chooser);
-    System.out.println("Robot Init Sequence Finished");
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   /**
@@ -226,25 +189,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-<<<<<<< HEAD
     _robotTime.resetTimer();
     cDriverInput.start();
     _robotTime.timePrintln("[SYSTEM] Autonomous Initiated.");
-=======
-    // m_autonomousCommand = m_chooser.getSelected();
-
-    /*
-     * String autoSelected = SmartDashboard.getString("Auto Selector",
-     * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-     * = new MyAutoCommand(); break; case "Default Auto": default:
-     * autonomousCommand = new ExampleCommand(); break; }
-     */
-
-    // schedule the autonomous command (example)
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.start();
-    // }
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
   /**
    * This function is called periodically during autonomous.
@@ -257,25 +204,13 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     //Initiate Teleoperative Driver Input
-<<<<<<< HEAD
     cDriverInput.start();
     _robotTime.timePrintln("[SYSTEM] Teleoperative control initiated.");
-=======
-    cDriverInput = new C_DriverInput();
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
-<<<<<<< HEAD
   }
-=======
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
-  }
-
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   /**
    * This function is called periodically during operator control.
    */

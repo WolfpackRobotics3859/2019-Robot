@@ -68,11 +68,7 @@ public synchronized void setShooterShoot(double speed) {
     mShooter_Top.set(ControlMode.PercentOutput, speed);
   } else {
     mShooter_Bot.set(ControlMode.PercentOutput, speed);
-<<<<<<< HEAD
     mShooter_Top.set(ControlMode.PercentOutput, 0.0);
-=======
-    mShooter_Top.set(ControlMode.PercentOutput, -0.1);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 }
 public synchronized void setIntakeRoller(double speed) {

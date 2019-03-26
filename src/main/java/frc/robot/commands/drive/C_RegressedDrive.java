@@ -20,21 +20,13 @@ public class C_RegressedDrive extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-<<<<<<< HEAD
     System.out.println("[DRIVE] Regression Active.");
-=======
-    System.out.println("Regressed Drive Active.");
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-<<<<<<< HEAD
     Robot._Drive.regressionDrive(-OI.xbox1.getRawAxis(1), -OI.xbox1.getRawAxis(4));  
-=======
-    Robot._Drive.joystickDrive(-OI.xbox1.getRawAxis(1), -OI.xbox1.getRawAxis(4), false, false);  
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-<<<<<<< HEAD
 import frc.robot.commands.electropneumatic.C_HookClamp;
 
 public class Sys_ElectroPneumatic extends Subsystem {
@@ -20,14 +19,6 @@ public class Sys_ElectroPneumatic extends Subsystem {
   hatch_claw = new DoubleSolenoid(RobotMap.hatch_ds_kForward,RobotMap.hatch_ds_kReverse);
   drive_shifter = new DoubleSolenoid(RobotMap.shifter_ds_kForward,RobotMap.shifter_ds_kReverse);
   climb_release = new DoubleSolenoid(RobotMap.climb_ds_kForward, RobotMap.climb_ds_kReverse);
-=======
-
-public class Sys_ElectroPneumatic extends Subsystem {
-  DoubleSolenoid hatch_claw, drive_shifter; {
-    
-  hatch_claw = new DoubleSolenoid(RobotMap.hatch_ds_kForward,RobotMap.hatch_ds_kReverse);
-  drive_shifter = new DoubleSolenoid(RobotMap.shifter_ds_kForward,RobotMap.shifter_ds_kReverse);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
   public Relay spike;
   
@@ -48,7 +39,6 @@ public class Sys_ElectroPneumatic extends Subsystem {
   public synchronized void disengageGearing(){
       drive_shifter.set(DoubleSolenoid.Value.kForward);
   }
-<<<<<<< HEAD
 
   public synchronized void releaseClimb(){
     climb_release.set(DoubleSolenoid.Value.kReverse);
@@ -56,8 +46,6 @@ public class Sys_ElectroPneumatic extends Subsystem {
   public synchronized void engageClimb(){
     climb_release.set(DoubleSolenoid.Value.kForward);
 }
-=======
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   
   public synchronized void theHook(boolean deployOrRetract) {
     if(deployOrRetract) {

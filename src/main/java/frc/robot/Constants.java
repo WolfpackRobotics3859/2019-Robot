@@ -57,18 +57,11 @@ public class Constants {
 	public static final int shooterMaxAccel = 600;
 	public final static Gains shooterArmPID = new Gains(0.5, 0, 0.1, 1023/300, 300, 1);
 
-<<<<<<< HEAD
 	
 	//WHEELS CONSTANTS
 	public static final double wheels_SHOT_intaking = -0.75;
 	public static final double wheels_SHOT_shootingF = 0.45;
 	public static final double wheels_SHOT_shootingR = 0.6;
-=======
-	//WHEELS CONSTANTS
-	public static final double wheels_SHOT_intaking = -0.75;
-	public static final double wheels_SHOT_shootingF = 0.4;
-	public static final double wheels_SHOT_shootingR = 0.4;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 	public static final double wheels_SHOT_holding = -0.15;
 
 	public static final double wheels_INTA_intaking = -0.8;

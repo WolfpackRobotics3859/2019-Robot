@@ -15,10 +15,6 @@ import frc.robot.Robot;
 //Drive Input is a nonterminating command that assigns values from the drive to methods that require driver input to trigger actions.
 public class C_DriverInput extends Command {
   public C_DriverInput() {
-<<<<<<< HEAD
-=======
-    requires(Robot._Drive);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   // Called just before this Command runs the first time

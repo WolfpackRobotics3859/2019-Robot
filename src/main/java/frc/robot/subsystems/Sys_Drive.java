@@ -17,7 +17,6 @@ import com.ctre.phoenix.sensors.PigeonIMU;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-<<<<<<< HEAD
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -25,13 +24,6 @@ import frc.robot.Constants;
 import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.drive.C_RegressedDrive;
-=======
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import frc.robot.Constants;
-import frc.robot.RobotMap;
-import frc.robot.commands.driver_input.C_DriverInput;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 
 
 public class Sys_Drive extends Subsystem {
@@ -64,21 +56,11 @@ public class Sys_Drive extends Subsystem {
     t5 = new WPI_VictorSPX(RobotMap.drive_rightSlaveVictor5);
     t6 = new WPI_VictorSPX(RobotMap.drive_rightSlaveVictor6);
 
-<<<<<<< HEAD
-=======
-    t2.setInverted(false);
-    t3.setInverted(false);
-
-    t5.setInverted(true);
-    t6.setInverted(true);
-
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     mGroupLeft = new SpeedControllerGroup(t1, t2, t3);
     mGroupRight = new SpeedControllerGroup(t4, t5, t6);
 
     mDrive = new DifferentialDrive(mGroupLeft, mGroupRight);
 
-<<<<<<< HEAD
     t2.configVoltageCompSaturation(9, Constants.kTimeoutMs);
     t3.configVoltageCompSaturation(9, Constants.kTimeoutMs);
     t5.configVoltageCompSaturation(9, Constants.kTimeoutMs);
@@ -89,8 +71,6 @@ public class Sys_Drive extends Subsystem {
     t5.enableVoltageCompensation(true);
     t6.enableVoltageCompensation(true);
 
-=======
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     t1.setSelectedSensorPosition(0);
     t4.setSelectedSensorPosition(0);
 
@@ -105,22 +85,13 @@ public class Sys_Drive extends Subsystem {
   public void configureMasterTalon(TalonSRX talonID, boolean left){
     talonID.configFactoryDefault();
     talonID.setSensorPhase(true);
-<<<<<<< HEAD
     // talonID.setInverted(!left);
-=======
-    talonID.setInverted(!left);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     talonID.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder,Constants.kPIDLoopIdx,Constants.kTimeoutMs);
     talonID.configNominalOutputForward(0, Constants.kTimeoutMs);
     talonID.configNominalOutputReverse(0, Constants.kTimeoutMs);
     talonID.configPeakOutputForward(1, Constants.kTimeoutMs);
     talonID.configPeakOutputReverse(-1, Constants.kTimeoutMs);
-<<<<<<< HEAD
     talonID.configVoltageCompSaturation(9.0, Constants.kTimeoutMs);
-=======
-    talonID.configVoltageCompSaturation(12.0, Constants.kTimeoutMs);
-    talonID.enableVoltageCompensation(true);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 
   public double leftSpeedApproved = 0;
@@ -129,7 +100,6 @@ public class Sys_Drive extends Subsystem {
   public double rotateVariableR = 0;
   private double leftControlAdditional;
   private double rightControlAdditional;
-<<<<<<< HEAD
   private final double driveDivisible = 0.7;
 
   public void regressionDrive(double leftSpeed, double rotateAxisInput) {
@@ -139,29 +109,15 @@ public class Sys_Drive extends Subsystem {
     t3.enableVoltageCompensation(false);
     t5.enableVoltageCompensation(false);
     t6.enableVoltageCompensation(false);
-=======
-  public double driveDivisible = 2;
-
-  public void regressionDrive(double leftSpeed, double rotateAxisInput) {
- 
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     if(Math.abs(leftSpeed)<0.1) {
       leftSpeedApproved = 0;
       rightSpeedApproved = 0;
     } if(leftSpeed>0.1) {
-<<<<<<< HEAD
       leftSpeedApproved = (-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*driveDivisible-((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableR);
       rightSpeedApproved = (-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*driveDivisible-((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableL);
     } if(leftSpeed<-0.1) {
       leftSpeedApproved = -(-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*driveDivisible+((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableL);
       rightSpeedApproved = -(-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*driveDivisible+((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableR);
-=======
-      leftSpeedApproved = (-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)/driveDivisible-((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableR);
-      rightSpeedApproved = (-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)/driveDivisible-((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableL);
-    } if(leftSpeed<-0.1) {
-      leftSpeedApproved = -(-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)/driveDivisible+((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableL);
-      rightSpeedApproved = -(-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)/driveDivisible+((-0.001754068-0.0584286*leftSpeed+1.050021*leftSpeed*leftSpeed)*rotateVariableR);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     }
 
   if(Math.abs(rotateAxisInput)<0.1) {
@@ -177,26 +133,16 @@ public class Sys_Drive extends Subsystem {
 
   if(leftSpeedApproved==0 && rightSpeedApproved == 0 && Math.abs(rotateAxisInput)>0.1) {
     if(rotateAxisInput>0.1){
-<<<<<<< HEAD
       leftSpeedApproved = -(-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/2;
       rightSpeedApproved = (-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/2;
     }
     if(rotateAxisInput<0.1){
       rightSpeedApproved = -(-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/2;
       leftSpeedApproved = (-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/2;
-=======
-      leftSpeedApproved = -(-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/3;
-      rightSpeedApproved = (-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/3;
-    }
-    if(rotateAxisInput<0.1){
-      rightSpeedApproved = -(-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/3;
-      leftSpeedApproved = (-0.001754068-0.0584286*rotateAxisInput+1.050021*rotateAxisInput*rotateAxisInput)/3;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     }
   }
   mDrive.tankDrive(leftSpeedApproved + leftControlAdditional, rightSpeedApproved + rightControlAdditional);
  }
-<<<<<<< HEAD
  private double steerDir;
  private double driveDir;
 public void rapidCurvatureDrive(double drive, double steer){
@@ -215,37 +161,24 @@ public void rapidCurvatureDrive(double drive, double steer){
     quickTurn = false;
   }
   mDrive.curvatureDrive(lockDrive, lockSteer, quickTurn);
-=======
-
-public void rapidCurvatureDrive(double drive, double steer, boolean quickTurn){
-  mDrive.curvatureDrive(drive, steer, quickTurn);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 }
 
 private boolean m_LimelightHasValidTarget = false;
 private double m_LimelightDriveCommand = 0.0;
 private double m_LimelightSteerCommand = 0.0;
 
-<<<<<<< HEAD
 private double lockDrive, lockSteer;
 public void autoLock(double drive, double steer){
     lockDrive = drive;
     lockSteer = steer;
     Update_Limelight_Tracking();
-=======
-public void autoLock(){
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     if (m_LimelightHasValidTarget)
     {
           mDrive.arcadeDrive(m_LimelightDriveCommand,m_LimelightSteerCommand);
     }
     else
     {
-<<<<<<< HEAD
           mDrive.arcadeDrive(lockDrive, lockSteer);
-=======
-          mDrive.arcadeDrive(0.0,0.0);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
     }
 }
 
@@ -262,7 +195,6 @@ public void Update_Limelight_Tracking()
         double ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(0);
         double ta = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ta").getDouble(0);
 
-<<<<<<< HEAD
         if((DESIRED_TARGET_AREA - ta)<= 0.2){
           OI.xbox1.setRumble(RumbleType.kLeftRumble, 1);
           OI.xbox1.setRumble(RumbleType.kRightRumble, 1);
@@ -275,8 +207,6 @@ public void Update_Limelight_Tracking()
           OI.xbox1.setRumble(RumbleType.kRightRumble, 0);
         }
         
-=======
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
         if (tv < 1.0)
         {
           m_LimelightHasValidTarget = false;
@@ -299,16 +229,11 @@ public void Update_Limelight_Tracking()
         {
           drive_cmd = MAX_DRIVE;
         }
-<<<<<<< HEAD
         m_LimelightDriveCommand = -drive_cmd;
-=======
-        m_LimelightDriveCommand = drive_cmd;
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 }
 
 /**
  * Utilize for program access to drivebase subsystem.
-<<<<<<< HEAD
  * @param drive
  * @param steer
  */
@@ -322,14 +247,6 @@ public void setDrive(double drive, double steer){
   setDriveVar = drive;
   setSteerVar = steer;
   mDrive.arcadeDrive(setDriveVar, setSteerVar);
-=======
- * @param leftSpeed
- * @param rightSpeed
- */
-public void setDrive(double leftSpeed, double rightSpeed){
-  t1.set(ControlMode.PercentOutput, leftSpeed);
-  t4.set(ControlMode.PercentOutput, rightSpeed);
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
 }
 
 /**
@@ -347,10 +264,6 @@ public int getEncoderValue(boolean encoderSide){
  
   @Override
   public void initDefaultCommand() {
-<<<<<<< HEAD
     setDefaultCommand(new C_RegressedDrive());
-=======
-    setDefaultCommand(new C_DriverInput());
->>>>>>> 0c0246a78bb3db3c9a40c25f5ce34b280853328e
   }
 }
